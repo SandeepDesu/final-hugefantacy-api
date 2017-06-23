@@ -1,0 +1,15 @@
+{
+  "name": "hugefantacy",
+  "version": "0.0.1",
+  "description": "All in one Platform",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "forever": "^0.15.3",
+    "md5": "^2.2.1",
+    "mongoose": "^4.9.3",
+    "request": "^2.81.0",
+    "socket.io": "^1.7.3"
+  }
+}
