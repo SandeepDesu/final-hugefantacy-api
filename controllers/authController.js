@@ -6,12 +6,14 @@ function AuthController() {
 }
 
 AuthController.prototype.authenticate = function (req, res, next) {
-    if (req.params.type === 'custom') {
+    if (req.params.authenticate === 'custom') {
         this.custom(req, res, next);
-    } else if (req.params.type === 'facebook') {
+    } else if (req.params.authenticate === 'facebook') {
         this.facebook(req, res, next);
-    } else if (req.params.type === 'google') {
+    } else if (req.params.authenticate === 'google') {
         this.google(req, res, next);
+    }else if (req.params.authenticate === 'register') {
+        this.register(req, res, next);
     } else {
         res.status(400).send({message: "Please check your api request"});
     }
@@ -30,7 +32,14 @@ AuthController.prototype.facebook = function (req, res, next) {
 };
 
 AuthController.prototype.google = function (req, res, next) {
-    ac.githubLogin(req.body, function (result) {
+    console.log(req.body);
+    ac.googleLogin(req.body, function (result) {
+        res.status(result.status).send(result.data);
+    });
+};
+
+AuthController.prototype.register = function (req, res, next) {
+    ac.register(req.body, function (result) {
         res.status(result.status).send(result.data);
     });
 };

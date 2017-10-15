@@ -4,7 +4,6 @@ var express = require('express'),
     privateKey = fs.readFileSync('/etc/letsencrypt/live/api.hugefantacy.in/privkey.pem'),
     cert = fs.readFileSync('/etc/letsencrypt/live/api.hugefantacy.in/fullchain.pem'),
     bodyParser = require('body-parser'),
-    mongoose = require('mongoose'),
     app = express();
 
 
